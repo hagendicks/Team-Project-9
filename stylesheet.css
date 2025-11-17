@@ -1,0 +1,259 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #FFFAFA;
+    color: #2E2E2E;
+}
+
+header {
+    background-color: #2E2E2E;
+    color: #FFFAFA;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-size: 1.6rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+header div {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #d3d3d3;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #3A3A3A;
+    color: #FFFAFA;
+    min-height: calc(100vh - 60px);
+    padding-top: 20px;
+    box-shadow: 2px 0 6px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.sidebar li:hover,
+.sidebar li.active {
+    background-color: #FFFAFA;
+    color: #2E2E2E;
+    font-weight: bold;
+    padding-left: 25px;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+main {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    padding: 30px;
+    background-color: #FFFAFA;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-left: 5px solid #2E2E2E;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    font-size: 1.2rem;
+    color: #2E2E2E;
+    border-bottom: 2px solid #dcdcdc;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: #2E2E2E;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #bcbcbc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+button {
+    background-color: #2E2E2E;
+    border: none;
+    color: #FFFAFA;
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #4a4a4a;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th,
+td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #2E2E2E;
+    color: #FFFAFA;
+    font-weight: 600;
+}
+
+td {
+    color: #2E2E2E;
+}
+
+.result {
+    background: #f3f3f3;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: #2E2E2E;
+}
+
+.insight-placeholder {
+    background: #f8f8f8;
+    border: 1px dashed #aaa;
+    color: #2E2E2E;
+    text-align: center;
+    padding: 25px;
+    border-radius: 8px;
+    font-style: italic;
+}
+
+footer {
+    background-color: #2E2E2E;
+    color: #FFFAFA;
+    text-align: center;
+    padding: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.auth-body {
+    background-color: #2E2E2E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.auth-container {
+    background-color: #FFFAFA;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    width: 360px;
+    padding: 40px 30px;
+    text-align: center;
+}
+
+.auth-container h1 {
+    color: #2E2E2E;
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+}
+
+.auth-container h2 {
+    color: #4a4a4a;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.auth-container label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin: 10px 0 5px;
+    color: #2E2E2E;
+}
+
+.auth-container input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #bcbcbc;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.auth-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2E2E2E;
+    color: #FFFAFA;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.auth-container button:hover {
+    background-color: #4a4a4a;
+}
+
+.switch-auth {
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+.switch-auth a {
+    color: #2E2E2E;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.switch-auth a:hover {
+    text-decoration: underline;
+}
