@@ -9,28 +9,36 @@
 </head>
 
 <body class="auth-body">
-    <div class="auth-container">
+    <header class="auth-header">
         <h1>Project Demand Analyzer</h1>
+    </header>
+
+    <div class="auth-container">
         <h2>Create Account</h2>
 
-        <form>
-            <label>Full Name</label>
-            <input type="text" placeholder="Enter your name" required>
+        <form onsubmit="validateSignup(event)">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
 
-            <label>Email Address</label>
-            <input type="email" placeholder="Enter your email" required>
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
 
-            <label>Password</label>
-            <input type="password" placeholder="Create a password" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create a password" required>
 
             <button type="submit">Sign Up</button>
 
             <p class="switch-auth">
-                Already have an account?
-                <a href="login.html">Login here</a>
+                Already have an account? <a href="login.html">Login here</a>
             </p>
         </form>
     </div>
+
+    <footer class="auth-footer">
+        2025 Project Demand Analyzer | Ghana Cedi (GHS)
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

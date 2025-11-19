@@ -11,7 +11,7 @@
 <body>
     <header>
         <h1>Project Demand Analyzer</h1>
-        <div>Settings & Information</div>
+        <div>Settings</div>
     </header>
 
     <div class="container">
@@ -20,28 +20,27 @@
                 <li><a href="index.html">Dashboard</a></li>
                 <li><a href="materials.html">Materials DB</a></li>
                 <li><a href="recent.html">Recent Analyses</a></li>
+                <li><a href="gpe-calculator.html">GPE Calculator</a></li>
+                <li><a href="charts.html">Analytics</a></li>
                 <li class="active"><a href="settings.html">Settings</a></li>
             </ul>
         </nav>
 
         <main>
             <div class="card">
-                <h2>Platform Settings</h2>
-                <p>Manage your preferences and view platform details below.</p>
-
+                <h2>Platform Preferences</h2>
                 <form>
-                    <label>Preferred Currency</label>
-                    <select>
+                    <label for="currency">Preferred Currency</label>
+                    <select id="currency">
             <option>GHS (Ghana Cedi)</option>
             <option>USD (US Dollar)</option>
             <option>EUR (Euro)</option>
           </select>
 
-                    <label>Theme</label>
-                    <select>
+                    <label for="theme">Theme</label>
+                    <select id="theme">
+            <option>Snow & Dark Gray</option>
             <option>Royal Blue & Gold</option>
-            <option>Light</option>
-            <option>Dark</option>
           </select>
 
                     <button type="submit">Save Settings</button>
@@ -51,10 +50,10 @@
             <div class="card">
                 <h2>About Project Demand Analyzer</h2>
                 <p>
-                    Project Demand Analyzer is a web-based platform that helps users assess and visualize project demand trends using AI-driven insights.
+                    Project Demand Analyzer is a web-based tool designed to help Ghanaian builders, planners, and analysts calculate material demands and forecast project feasibility.
                 </p>
                 <p>
-                    This tool was developed for Ghanaian construction and planning professionals to better understand material demands, pricing patterns, and project viability.
+                    Built with HTML, CSS, and JavaScript, this system provides dynamic insights and real-time computation for efficient construction management.
                 </p>
             </div>
         </main>

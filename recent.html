@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
-<body>
+<body onload="loadRecentAnalyses()">
     <header>
         <h1>Project Demand Analyzer</h1>
         <div>Recent Analyses</div>
@@ -20,6 +20,8 @@
                 <li><a href="index.html">Dashboard</a></li>
                 <li><a href="materials.html">Materials DB</a></li>
                 <li class="active"><a href="recent.html">Recent Analyses</a></li>
+                <li><a href="gpe-calculator.html">GPE Calculator</a></li>
+                <li><a href="charts.html">Analytics</a></li>
                 <li><a href="settings.html">Settings</a></li>
             </ul>
         </nav>
@@ -27,41 +29,30 @@
         <main>
             <div class="card">
                 <h2>Recent Project Analyses</h2>
-                <p>Here you can review summaries of your recent demand assessments.</p>
-
                 <table>
                     <thead>
                         <tr>
-                            <th>Project Name</th>
                             <th>Date</th>
                             <th>Total Value (GHS)</th>
                             <th>Demand Score (%)</th>
-                            <th>Status</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="recentTableBody"></tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>Recent GPE Analyses</h2>
+                <table>
+                    <thead>
                         <tr>
-                            <td>Residential Build - Pokuase</td>
-                            <td>Oct 15, 2025</td>
-                            <td>145,000</td>
-                            <td>72</td>
-                            <td>High</td>
+                            <th>Date</th>
+                            <th>DFS (%)</th>
+                            <th>DOM (days)</th>
+                            <th>Price (GHS/m²)</th>
                         </tr>
-                        <tr>
-                            <td>Warehouse - Tema</td>
-                            <td>Oct 12, 2025</td>
-                            <td>98,000</td>
-                            <td>61</td>
-                            <td>Moderate</td>
-                        </tr>
-                        <tr>
-                            <td>Office Block - Kumasi</td>
-                            <td>Oct 7, 2025</td>
-                            <td>215,000</td>
-                            <td>55</td>
-                            <td>Moderate</td>
-                        </tr>
-                    </tbody>
+                    </thead>
+                    <tbody id="gpeRecentTableBody"></tbody>
                 </table>
             </div>
         </main>
@@ -70,81 +61,8 @@
     <footer>
         2025 Project Demand Analyzer | Recent Analyses
     </footer>
-</body>
 
-</html>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recent Analyses | Project Demand Analyzer</title>
-    <link rel="stylesheet" href="stylesheet.css">
-</head>
-
-<body>
-    <header>
-        <h1>Project Demand Analyzer</h1>
-        <div>Recent Analyses</div>
-    </header>
-
-    <div class="container">
-        <nav class="sidebar">
-            <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="materials.html">Materials DB</a></li>
-                <li class="active"><a href="recent.html">Recent Analyses</a></li>
-                <li><a href="settings.html">Settings</a></li>
-            </ul>
-        </nav>
-
-        <main>
-            <div class="card">
-                <h2>Recent Project Analyses</h2>
-                <p>Here you can review summaries of your recent demand assessments.</p>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Project Name</th>
-                            <th>Date</th>
-                            <th>Total Value (GHS)</th>
-                            <th>Demand Score (%)</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Residential Build - Pokuase</td>
-                            <td>Oct 15, 2025</td>
-                            <td>145,000</td>
-                            <td>72</td>
-                            <td>High</td>
-                        </tr>
-                        <tr>
-                            <td>Warehouse - Tema</td>
-                            <td>Oct 12, 2025</td>
-                            <td>98,000</td>
-                            <td>61</td>
-                            <td>Moderate</td>
-                        </tr>
-                        <tr>
-                            <td>Office Block - Kumasi</td>
-                            <td>Oct 7, 2025</td>
-                            <td>215,000</td>
-                            <td>55</td>
-                            <td>Moderate</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </main>
-    </div>
-
-    <footer>
-        2025 Project Demand Analyzer | Recent Analyses
-    </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>

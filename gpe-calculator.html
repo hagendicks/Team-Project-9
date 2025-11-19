@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPE Calculator | Project Demand Analyzer</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <header>
+        <h1>Project Demand Analyzer</h1>
+        <div>GPE Demand Feasibility Calculator</div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="materials.html">Materials DB</a></li>
+                <li><a href="recent.html">Recent Analyses</a></li>
+                <li class="active"><a href="gpe-calculator.html">GPE Calculator</a></li>
+                <li><a href="charts.html">Analytics</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="card">
+                <h2>GPE – Demand Feasibility</h2>
+                <form id="gpeForm" onsubmit="calculateGPE(event)">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="number" id="longitude" step="0.01" value="116.45" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="latitude">Latitude</label>
+                            <input type="number" id="latitude" step="0.01" value="40" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="followers">Followers</label>
+                            <input type="number" id="followers" value="180" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pricePerSqm">Price per m² (GHS)</label>
+                            <input type="number" id="pricePerSqm" value="56000" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="area">Area (m²)</label>
+                            <input type="number" id="area" value="96" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="livingRooms">Living Rooms</label>
+                            <input type="number" id="livingRooms" value="3" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="drawingRooms">Drawing Rooms</label>
+                            <input type="number" id="drawingRooms" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kitchen">Kitchen</label>
+                            <input type="number" id="kitchen" value="1" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bathrooms">Bathrooms</label>
+                            <input type="number" id="bathrooms" value="2" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="floor">Floor Position</label>
+                            <select id="floor" required>
+                                <option value="low">Low</option>
+                                <option value="middle" selected>Middle</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="buildingType">Building Type</label>
+                            <select id="buildingType" required>
+                                <option value="1">Type 1</option>
+                                <option value="2">Type 2</option>
+                                <option value="3" selected>Type 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="renovation">Renovation Condition</label>
+                            <select id="renovation" required>
+                                <option value="1" selected>Basic</option>
+                                <option value="2">Standard</option>
+                                <option value="3">Luxury</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="structure">Building Structure</label>
+                            <select id="structure" required>
+                                <option value="1">Structure 1</option>
+                                <option value="2">Structure 2</option>
+                                <option value="3" selected>Structure 3</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ladderRatio">Ladder Ratio</label>
+                            <input type="number" id="ladderRatio" step="0.1" value="2" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="elevator">Elevator</label>
+                            <select id="elevator" required>
+                                <option value="0">No</option>
+                                <option value="1" selected>Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="fiveYearsProperty">Five Years Property</label>
+                            <select id="fiveYearsProperty" required>
+                                <option value="0">No</option>
+                                <option value="1" selected>Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="subway">Subway Access</label>
+                            <select id="subway" required>
+                                <option value="0">No</option>
+                                <option value="1" selected>Yes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="constructionYear">Construction Year</label>
+                            <input type="number" id="constructionYear" min="1900" max="2030" value="2015" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="district">District</label>
+                            <input type="number" id="district" value="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="communityAvg">Community Average Price (optional)</label>
+                            <input type="number" id="communityAvg" value="55000">
+                        </div>
+                    </div>
+                    <button type="submit">Calculate Feasibility</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Results</h2>
+                <div id="gpeResults" class="result">
+                    <p><strong>Submit the form to see analysis results</strong></p>
+                    <p>All calculations are performed server-side for accuracy and data security.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        2025 Project Demand Analyzer | GPE Calculator
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
