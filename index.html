@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Project Demand Analyzer</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <header>
+        <h1>Project Demand Analyzer</h1>
+        <div>Powered by AI - GHS Analytics</div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li class="active"><a href="index.html">Dashboard</a></li>
+                <li><a href="materials.html">Materials DB</a></li>
+                <li><a href="recent.html">Recent Analyses</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="card">
+                <h2>Add Project Materials</h2>
+                <label>Select Material</label>
+                <select>
+          <option>Cement (50kg Bag)</option>
+          <option>Steel (Ton)</option>
+          <option>Blocks (Unit)</option>
+          <option>Sand (Trip)</option>
+          <option>Paint (Bucket)</option>
+        </select>
+
+                <label>Quantity</label>
+                <input type="number" placeholder="Enter quantity">
+
+                <button>Add Material</button>
+            </div>
+
+            <div class="card">
+                <h2>Current Project Summary</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Material</th>
+                            <th>Quantity</th>
+                            <th>Unit Cost (GHS)</th>
+                            <th>Subtotal (GHS)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" style="text-align:center;">No data added</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="result">
+                    <strong>Total Project Value:</strong>
+                    <span>GHS 0.00</span>
+                </div>
+                <button>Assess Demand</button>
+            </div>
+
+            <div class="card">
+                <h2>Demand Insights</h2>
+                <p><em>Ready for Analysis...</em></p>
+                <div class="insight-placeholder">
+                    <p>[Chart will appear here]</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Recent Analyses</h2>
+                <ul>
+                    <li>No previous analyses available.</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        2025 Project Demand Analyzer | Ghana Cedi (GHS)
+    </footer>
+</body>
+
+</html>
