@@ -257,3 +257,8 @@ footer {
 .switch-auth a:hover {
     text-decoration: underline;
 }
+
+.bar-wrap { background:#f2f2f2; border-radius:12px; height:24px; overflow:hidden; }
+.bar { height:100%; width:0%; background:linear-gradient(90deg,#c52230,#16a34a); transition: width 0.9s ease; }
+.score { font-weight:700; margin-top:8px; }
+@media (max-width:720px){ .row { grid-template-columns:1fr; } }
