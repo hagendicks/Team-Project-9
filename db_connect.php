@@ -6,29 +6,45 @@
 
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'password'); // CHANGE THIS PASSWORD
-define('DB_NAME', 'project_demand_analyzer');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'Demand estimator');
 
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
+// Check connection
 if ($conn->connect_error) {
-    die("ERROR: Could not connect to the database. " . $conn->connect_error);
+    error_log("Database connection error: " . $conn->connect_error);
+    // Set a session error message for redirection targets
+    $_SESSION['error_message'] = "Database connection failed. Please contact support.";
+    exit;
 }
 
+$conn->set_charset("utf8mb4");
+
+// Helper function to redirect unauthenticated users
+function check_auth() {
+    if (!isset($_SESSION['user_id'])) {
+        // Clear lingering messages and redirect
+        unset($_SESSION['success_message']);
+        unset($_SESSION['error_message']);
+        header('Location: login.html');
+        exit;
+    }
+}
 // 1. Check/Create Materials Table (Existing from Sprint 1)
-$table_check_materials = "SELECT 1 FROM materials LIMIT 1";
+$table_check_materials = "SELECT 1 FROM Materials LIMIT 1";
 if ($conn->query($table_check_materials) === FALSE) {
     $create_table_sql = "
-    CREATE TABLE materials (
-        id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        material_name VARCHAR(100) NOT NULL UNIQUE,
+    CREATE TABLE  (
+        MaterialID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+        Material_name VARCHAR(100) NOT NULL UNIQUE,
         unit_of_measure VARCHAR(50) NOT NULL,
         unit_cost DECIMAL(10, 2) NOT NULL,
         category VARCHAR(50) NOT NULL
     );";
     $conn->query($create_table_sql);
     $conn->query("
-    INSERT INTO materials (material_name, unit_of_measure, unit_cost, category) VALUES
+    INSERT INTO Materials (material_name, unit_of_measure, unit_cost, category) VALUES
     ('Cement', '50kg Bag', 85.00, 'Building'),
     ('Steel', 'Ton', 4200.00, 'Structural'),
     ('Blocks', 'Unit', 3.50, 'Building'),
