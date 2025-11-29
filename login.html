@@ -9,11 +9,8 @@
 </head>
 
 <body class="auth-body">
-    <header class="auth-header">
-        <h1>Project Demand Analyzer</h1>
-    </header>
-
     <div class="auth-container">
+        <h1>Project Demand Analyzer</h1>
         <h2>Login</h2>
 
         <form onsubmit="validateLogin(event)">
@@ -26,7 +23,10 @@
             <button type="submit">Login</button>
 
             <p class="switch-auth">
-                Don’t have an account? <a href="signup.html">Sign up here</a>
+                Don't have an account? <a href="signup.html">Sign up here</a>
+            </p>
+            <p class="switch-auth">
+                <a href="landing.html">Back to Home</a>
             </p>
         </form>
     </div>
@@ -35,7 +35,19 @@
         2025 Project Demand Analyzer | Ghana Cedi (GHS)
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'royal-blue') {
+                document.body.className = 'royal-blue-gold';
+            }
+        });
+
+        function validateLogin(event) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 
 </html>
