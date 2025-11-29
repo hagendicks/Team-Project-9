@@ -29,7 +29,7 @@
         <main>
             <div class="card">
                 <h2>Platform Preferences</h2>
-                <form>
+                <form onsubmit="saveSettings(event)">
                     <label for="currency">Preferred Currency</label>
                     <select id="currency">
             <option>GHS (Ghana Cedi)</option>
@@ -39,8 +39,8 @@
 
                     <label for="theme">Theme</label>
                     <select id="theme">
-            <option>Snow & Dark Gray</option>
-            <option>Royal Blue & Gold</option>
+            <option value="snow-dark">Snow & Dark Gray</option>
+            <option value="royal-blue">Royal Blue & Gold</option>
           </select>
 
                     <button type="submit">Save Settings</button>
@@ -62,6 +62,24 @@
     <footer>
         2025 Project Demand Analyzer | Settings
     </footer>
+
+    <script>
+        function saveSettings(event) {
+            event.preventDefault();
+            const theme = document.getElementById('theme').value;
+            document.body.className = theme === 'royal-blue' ? 'royal-blue-gold' : '';
+            localStorage.setItem('theme', theme);
+            alert('Settings saved successfully!');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'royal-blue') {
+                document.body.className = 'royal-blue-gold';
+                document.getElementById('theme').value = 'royal-blue';
+            }
+        });
+    </script>
 </body>
 
 </html>
