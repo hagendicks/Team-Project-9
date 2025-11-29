@@ -4,34 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Project Demand Analyzer</title>
+    <title>Dashboard | Project Demand Analyzer</title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
-<body class="auth-body">
-    <div class="auth-container">
+<body>
+    <header>
         <h1>Project Demand Analyzer</h1>
-        <h2>Login</h2>
+        <div>Powered by GHS Analytics</div>
+    </header>
 
-        <form onsubmit="validateLogin(event)">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li class="active"><a href="index.html">Dashboard</a></li>
+                <li><a href="materials.html">Materials DB</a></li>
+                <li><a href="recent.html">Recent Analyses</a></li>
+                <li><a href="gpe-calculator.html">GPE Calculator</a></li>
+                <li><a href="charts.html">Analytics</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
 
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required>
+        <main>
+            <div class="card">
+                <h2>Add Project Materials</h2>
+                <form onsubmit="addMaterial(event)">
+                    <label>Select Material</label>
+                    <select id="material">
+            <option value="Cement">Cement (50kg Bag)</option>
+            <option value="Steel">Steel (Ton)</option>
+            <option value="Blocks">Blocks (Unit)</option>
+            <option value="Sand">Sand (Trip)</option>
+            <option value="Paint">Paint (Bucket)</option>
+          </select>
 
-            <button type="submit">Login</button>
+                    <label>Quantity</label>
+                    <input type="number" id="quantity" placeholder="Enter quantity" required>
 
-            <p class="switch-auth">
-                Don't have an account? <a href="signup.html">Sign up here</a>
-            </p>
-            <p class="switch-auth">
-                <a href="landing.html">Back to Home</a>
-            </p>
-        </form>
+                    <button type="submit">Add Material</button>
+                </form>
+            </div>
+
+            <div class="card">
+                <h2>Project Summary</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Material</th>
+                            <th>Quantity</th>
+                            <th>Unit Cost (GHS)</th>
+                            <th>Subtotal (GHS)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="materialTableBody"></tbody>
+                </table>
+
+                <div class="result">
+                    <strong>Total Project Value:</strong>
+                    <span id="totalValue">GHS 0.00</span>
+                </div>
+
+                <button onclick="assessDemand()">Assess Demand</button>
+                <div id="insightResult" class="result"></div>
+            </div>
+
+            <div class="card">
+                <h2>Quick Actions</h2>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="window.location.href='gpe-calculator.html'" style="width: auto; padding: 10px 20px;">
+                        GPE Feasibility Calculator
+                    </button>
+                    <button onclick="window.location.href='materials.html'" style="width: auto; padding: 10px 20px;">
+                        View Materials Database
+                    </button>
+                    <button onclick="window.location.href='charts.html'" style="width: auto; padding: 10px 20px;">
+                        View Analytics
+                    </button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Recent Analyses</h2>
+                <ul id="recentList"></ul>
+            </div>
+        </main>
     </div>
 
-    <footer class="auth-footer">
+    <footer>
         2025 Project Demand Analyzer | Ghana Cedi (GHS)
     </footer>
 
@@ -42,12 +102,8 @@
                 document.body.className = 'royal-blue-gold';
             }
         });
-
-        function validateLogin(event) {
-            event.preventDefault();
-            window.location.href = 'index.html';
-        }
     </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
