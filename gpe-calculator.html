@@ -29,55 +29,55 @@
         <main>
             <div class="card">
                 <h2>GPE – Demand Feasibility</h2>
-                <form id="gpeForm" onsubmit="calculateGPE(event)">
+                <form id="gpeForm">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="longitude">Longitude</label>
-                            <input type="number" id="longitude" step="0.01" value="116.45" required>
+                            <input type="number" id="longitude" name="Lng" step="0.01" value="116.45" required>
                         </div>
                         <div class="form-group">
                             <label for="latitude">Latitude</label>
-                            <input type="number" id="latitude" step="0.01" value="40" required>
+                            <input type="number" id="latitude" name="Lat" step="0.01" value="40" required>
                         </div>
                         <div class="form-group">
                             <label for="followers">Followers</label>
-                            <input type="number" id="followers" value="180" required>
+                            <input type="number" id="followers" name="followers" value="180" required>
                         </div>
                         <div class="form-group">
                             <label for="pricePerSqm">Price per m² (GHS)</label>
-                            <input type="number" id="pricePerSqm" value="56000" required>
+                            <input type="number" id="pricePerSqm" name="price" value="56000" required>
                         </div>
                         <div class="form-group">
                             <label for="area">Area (m²)</label>
-                            <input type="number" id="area" value="96" required>
+                            <input type="number" id="area" name="square" value="96" required>
                         </div>
                         <div class="form-group">
                             <label for="livingRooms">Living Rooms</label>
-                            <input type="number" id="livingRooms" value="3" required>
+                            <input type="number" id="livingRooms" name="livingRoom" value="3" required>
                         </div>
                         <div class="form-group">
                             <label for="drawingRooms">Drawing Rooms</label>
-                            <input type="number" id="drawingRooms" value="1" required>
+                            <input type="number" id="drawingRooms" name="drawingRoom" value="1" required>
                         </div>
                         <div class="form-group">
                             <label for="kitchen">Kitchen</label>
-                            <input type="number" id="kitchen" value="1" required>
+                            <input type="number" id="kitchen" name="kitchen" value="1" required>
                         </div>
                         <div class="form-group">
                             <label for="bathrooms">Bathrooms</label>
-                            <input type="number" id="bathrooms" value="2" required>
+                            <input type="number" id="bathrooms" name="bathRoom" value="2" required>
                         </div>
                         <div class="form-group">
                             <label for="floor">Floor Position</label>
-                            <select id="floor" required>
-                                <option value="low">Low</option>
-                                <option value="middle" selected>Middle</option>
-                                <option value="high">High</option>
+                            <select id="floor" name="floor" required>
+                                <option value="Low">Low</option>
+                                <option value="Middle" selected>Middle</option>
+                                <option value="High">High</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="buildingType">Building Type</label>
-                            <select id="buildingType" required>
+                            <select id="buildingType" name="buildingType" required>
                                 <option value="1">Type 1</option>
                                 <option value="2">Type 2</option>
                                 <option value="3" selected>Type 3</option>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="form-group">
                             <label for="renovation">Renovation Condition</label>
-                            <select id="renovation" required>
+                            <select id="renovation" name="renovationCondition" required>
                                 <option value="1" selected>Basic</option>
                                 <option value="2">Standard</option>
                                 <option value="3">Luxury</option>
@@ -93,7 +93,7 @@
                         </div>
                         <div class="form-group">
                             <label for="structure">Building Structure</label>
-                            <select id="structure" required>
+                            <select id="structure" name="buildingStructure" required>
                                 <option value="1">Structure 1</option>
                                 <option value="2">Structure 2</option>
                                 <option value="3" selected>Structure 3</option>
@@ -101,44 +101,45 @@
                         </div>
                         <div class="form-group">
                             <label for="ladderRatio">Ladder Ratio</label>
-                            <input type="number" id="ladderRatio" step="0.1" value="2" required>
+                            <input type="number" id="ladderRatio" name="ladderRatio" step="0.1" value="2" required>
                         </div>
                         <div class="form-group">
                             <label for="elevator">Elevator</label>
-                            <select id="elevator" required>
+                            <select id="elevator" name="elevator" required>
                                 <option value="0">No</option>
                                 <option value="1" selected>Yes</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="fiveYearsProperty">Five Years Property</label>
-                            <select id="fiveYearsProperty" required>
+                            <select id="fiveYearsProperty" name="fiveYearsProperty" required>
                                 <option value="0">No</option>
                                 <option value="1" selected>Yes</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="subway">Subway Access</label>
-                            <select id="subway" required>
+                            <select id="subway" name="subway" required>
                                 <option value="0">No</option>
                                 <option value="1" selected>Yes</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="constructionYear">Construction Year</label>
-                            <input type="number" id="constructionYear" min="1900" max="2030" value="2015" required>
+                            <input type="number" id="constructionYear" name="constructionTime" min="1900" max="2030" value="2015" required>
                         </div>
                         <div class="form-group">
                             <label for="district">District</label>
-                            <input type="number" id="district" value="5" required>
+                            <input type="number" id="district" name="district" value="5" required>
                         </div>
                         <div class="form-group">
                             <label for="communityAvg">Community Average Price (optional)</label>
-                            <input type="number" id="communityAvg" value="55000">
+                            <input type="number" id="communityAvg" name="communityAverage" value="55000">
                         </div>
                     </div>
                     <button type="submit">Calculate Feasibility</button>
                 </form>
+
             </div>
 
             <div class="card">
@@ -146,6 +147,11 @@
                 <div id="gpeResults" class="result">
                     <p><strong>Submit the form to see analysis results</strong></p>
                     <p>All calculations are performed server-side for accuracy and data security.</p>
+
+                    <div class="card">
+                        <div class="bar-wrap"><div id="bar" class="bar"></div></div>
+                        <div class="score"> <strong>DFS: <span id="dfs">--</span>% &nbsp;|&nbsp; Predicted DOM: <span id="dom">--</span> days</strong></div>
+                    </div>
                 </div>
             </div>
         </main>

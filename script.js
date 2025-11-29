@@ -659,24 +659,32 @@ const form = document.getElementById('gpeForm');
 const bar = document.getElementById('bar');
 const dfsEl = document.getElementById('dfs');
 const domEl = document.getElementById('dom');
+const API_URL = "https://gpe-backend.onrender.com/api/predict";
 
 form.addEventListener('submit', async(e) => {
     e.preventDefault();
+    console.log("GPE form submitted!");
+    console.log("Raw FormData:", new FormData(form));
     const data = Object.fromEntries(new FormData(form).entries());
+    const rawEntries = [...new FormData(form).entries()];
+    console.log("FormData entries:", rawEntries);
+    console.log("Data object:", data);
+
     for (const k in data) { // convert numerics
         if (['floor'].includes(k)) continue;
         if (data[k] === '') { delete data[k]; continue; }
         const n = Number(data[k]);
         if (!Number.isNaN(n)) data[k] = n;
     }
-    const res = await fetch('/api/predict', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+    const res = await fetch(API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
-    });
+        });
     const out = await res.json();
-    const dfs = Math.max(0, Math.min(100, out.DFS_percent ? 0));
-    const dom = out.predicted_DOM_days ? 0;
+    console.log(out); // optional, for debugging in the browser console
+    const dfs = Math.max(0, Math.min(100, Number(out.DFS_percent ?? 0)));
+    const dom = Number(out.predicted_DOM_days ?? 0);
     bar.style.width = dfs + '%';
     dfsEl.textContent = dfs.toFixed(1);
     domEl.textContent = dom.toFixed(1);
