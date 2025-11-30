@@ -4,10 +4,12 @@
 // ** IMPORTANT SECURITY NOTE **
 // Use environment variables for production. This is for structural demonstration.
 
+// Define the port (this is the new value you set in XAMPP's my.ini)
+
 define('DB_SERVER', 'localhost');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
-define('DB_NAME', 'Demand estimator');
+define('DB_NAME', 'demand_estimator');
 
 $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
@@ -42,6 +44,7 @@ if ($conn->query($table_check_materials) === FALSE) {
         unit_cost DECIMAL(10, 2) NOT NULL,
         category VARCHAR(50) NOT NULL
     );";
+
     $conn->query($create_table_sql);
     $conn->query("
     INSERT INTO Materials (material_name, unit_of_measure, unit_cost, category) VALUES
@@ -53,30 +56,7 @@ if ($conn->query($table_check_materials) === FALSE) {
     ");
 }
 
-// 2. Check/Create Demand Multipliers Table (NEW for F-2/ML)
-$table_check_demand = "SELECT 1 FROM demand_multipliers LIMIT 1";
-if ($conn->query($table_check_demand) === FALSE) {
-    $create_demand_sql = "
-    CREATE TABLE demand_multipliers (
-        id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-        location VARCHAR(100) NOT NULL,
-        project_type VARCHAR(100) NOT NULL,
-        multiplier DECIMAL(3, 2) NOT NULL,
-        UNIQUE KEY unique_demand (location, project_type)
-    );";
-    $conn->query($create_demand_sql);
-
-    // Mock data for the ML-derived Market Factors (DM)
-    $conn->query("
-    INSERT INTO demand_multipliers (location, project_type, multiplier) VALUES
-    ('East Legon', '3-BR Executive', 1.35),
-    ('Pokuase', '2-BR Standard', 1.15),
-    ('Kumasi (Oforikrom)', '3-BR Standard', 1.05),
-    ('Tema', 'Warehouse/Industrial', 0.90);
-    ");
-}
-
-// 3. Check/Create Project History Table (NEW for F-4)
+// 2. Check/Create Project History Table (NEW for F-4)
 $table_check_history = "SELECT 1 FROM project_history LIMIT 1";
 if ($conn->query($table_check_history) === FALSE) {
     $create_history_sql = "
