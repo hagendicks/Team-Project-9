@@ -48,6 +48,10 @@
 
         function validateSignup(event) {
             event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userName', name);
             window.location.href = 'index.html';
         }
     </script>
