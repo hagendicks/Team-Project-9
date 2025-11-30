@@ -456,10 +456,6 @@ footer {
     margin: 10px 0;
 }
 
-.bar-wrap { background:#f2f2f2; border-radius:12px; height:24px; overflow:hidden; }
-
-.bar { height:100%; width:0%; background:linear-gradient(90deg,#22c55e,#16a34a); transition: width 0.9s ease; }
-
 .royal-blue-gold .progress-bar {
     background-color: #0A1931;
 }
@@ -878,4 +874,160 @@ input:checked+.toggle-slider:before {
 .royal-blue-gold .cta-button:hover {
     background-color: #FFFAFA;
     color: #185ADB;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #555;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.royal-blue-gold .user-info {
+    border-bottom: 1px solid #FEDB39;
+    background: rgba(255, 219, 57, 0.1);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4a4a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.royal-blue-gold .user-avatar {
+    background: #FEDB39;
+    color: #0A1931;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #FFFAFA;
+    font-size: 0.9rem;
+}
+
+.user-status {
+    font-size: 0.8rem;
+    color: #d3d3d3;
+}
+
+.royal-blue-gold .user-status {
+    color: #FFFAFA;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #555;
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.user-info:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.royal-blue-gold .user-info {
+    border-bottom: 1px solid #FEDB39;
+    background: rgba(255, 219, 57, 0.1);
+}
+
+.royal-blue-gold .user-info:hover {
+    background: rgba(255, 219, 57, 0.2);
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #4a4a4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 18px;
+}
+
+.royal-blue-gold .user-avatar {
+    background: #FEDB39;
+    color: #0A1931;
+}
+
+.user-details {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: bold;
+    color: #FFFAFA;
+    font-size: 0.9rem;
+}
+
+.user-status {
+    font-size: 0.8rem;
+    color: #d3d3d3;
+}
+
+.royal-blue-gold .user-status {
+    color: #FFFAFA;
+}
+
+.user-dropdown-arrow {
+    color: #FFFAFA;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.user-menu {
+    display: none;
+    background: #4a4a4a;
+    border-bottom: 1px solid #555;
+    padding: 15px 20px;
+}
+
+.royal-blue-gold .user-menu {
+    background: #185ADB;
+    border-bottom: 1px solid #FEDB39;
+}
+
+.user-menu.active {
+    display: block;
+}
+
+.user-menu-item {
+    padding: 8px 0;
+    color: #FFFAFA;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-menu-item:last-child {
+    border-bottom: none;
+    padding-top: 15px;
+}
+
+.logout-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
 }
