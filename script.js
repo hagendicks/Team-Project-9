@@ -16,7 +16,7 @@ function validateLogin(event) {
     }
 
     alert("Login successful! Redirecting to Dashboard...");
-    window.location.href = "index.html";
+    window.location.href = "materialsindex.html";
     return true;
 }
 
