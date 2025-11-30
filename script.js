@@ -665,7 +665,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (demandProgress) animateProgressBar('demandProgress', 75);
         if (costProgress) animateProgressBar('costProgress', 60);
     }, 1000);
-});
+
 const form = document.getElementById('gpeForm');
 const bar = document.getElementById('bar');
 const dfsEl = document.getElementById('dfs');
