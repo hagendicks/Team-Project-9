@@ -36,12 +36,13 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme === 'royal-blue') {
-                document.body.className = 'royal-blue-gold';
-            }
-        });
+        function validateLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById("email").value;
+            localStorage.setItem('userEmail', email);
+            localStorage.setItem('userName', email.split('@')[0]);
+            window.location.href = 'index.html';
+        }
 
         function validateLogin(event) {
             event.preventDefault();
