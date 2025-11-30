@@ -634,6 +634,8 @@ document.addEventListener('DOMContentLoaded', function() {
     setupMaterialSearch();
     setupInteractiveTables();
     setupGPERealTime();
+    setupUserProfile();
+    updateHeaderProfile();
 
     if (document.getElementById('recentTableBody')) {
         loadRecentAnalyses();
@@ -646,6 +648,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (document.getElementById('costChart')) {
         initializeCharts();
     }
+
+    setTimeout(() => {
+        const demandProgress = document.getElementById('demandProgress');
+        const costProgress = document.getElementById('costProgress');
+
+        if (demandProgress) animateProgressBar('demandProgress', 75);
+        if (costProgress) animateProgressBar('costProgress', 60);
+    }, 1000);
+});
 
     setTimeout(() => {
         const demandProgress = document.getElementById('demandProgress');
@@ -689,3 +700,49 @@ form.addEventListener('submit', async(e) => {
     dfsEl.textContent = dfs.toFixed(1);
     domEl.textContent = dom.toFixed(1);
 });
+
+function toggleUserMenu() {
+    const userMenu = document.getElementById('userMenu');
+    if (userMenu) {
+        userMenu.classList.toggle('active');
+    }
+}
+
+function updateUserInfo() {
+    const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
+    const userName = localStorage.getItem('userName') || 'User';
+    
+    const userNameElement = document.querySelector('.user-name');
+    const userEmailElement = document.getElementById('userEmailDisplay');
+    
+    if (userNameElement) {
+        userNameElement.textContent = userName;
+    }
+    if (userEmailElement) {
+        userEmailElement.textContent = userEmail;
+    }
+}
+
+function logout() {
+    localStorage.removeItem('userEmail');
+    localStorage.removeItem('userName');
+    window.location.href = 'login.html';
+}
+
+function setupUserProfile() {
+    updateUserInfo();
+    
+    const userInfoElement = document.querySelector('.user-info');
+    if (userInfoElement) {
+        userInfoElement.addEventListener('click', toggleUserMenu);
+    }
+    
+    document.addEventListener('click', function(event) {
+        const userMenu = document.getElementById('userMenu');
+        const userInfo = document.querySelector('.user-info');
+        
+        if (userMenu && userInfo && !userInfo.contains(event.target) && !userMenu.contains(event.target)) {
+            userMenu.classList.remove('active');
+        }
+    });
+}
