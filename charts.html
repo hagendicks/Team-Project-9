@@ -1,1 +1,69 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | Project Demand Analyzer</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>Project Demand Analyzer</h1>
+        <div>Analytics & Insights</div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="materialsindex.html">Dashboard</a></li>
+                <li><a href="materials.html">Materials DB</a></li>
+                <li><a href="recent.html">Recent Analyses</a></li>
+                <li><a href="gpe-calculator.html">GPE Calculator</a></li>
+                <li class="active"><a href="charts.html">Analytics</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="card">
+                <h2>Project Cost Breakdown</h2>
+                <div class="chart-container">
+                    <canvas id="costChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Demand Score Trends</h2>
+                <div class="chart-container">
+                    <canvas id="demandChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>Material Price Comparison</h2>
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>GPE Analysis Distribution</h2>
+                <div class="chart-container">
+                    <canvas id="gpeDistributionChart"></canvas>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        2025 Project Demand Analyzer | Analytics
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
